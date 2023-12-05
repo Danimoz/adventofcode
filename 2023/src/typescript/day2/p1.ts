@@ -18,7 +18,7 @@ async function solution(filePath: string) {
         if ((color === 'red' && Number(number) > 12) || (color === 'green' && Number(number) > 13) || (color === 'blue' && Number(number) > 14)) {
           validGame = false;
         }
-      }); 
+      });
     });
 
     if (validGame) {
