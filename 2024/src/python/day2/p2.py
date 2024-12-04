@@ -37,7 +37,6 @@ def is_safe_with_one_removal(sequence):
   return False
 
 
-
 for row in data:
   if is_safe(row):
     result += 1
@@ -45,4 +44,3 @@ for row in data:
     result += 1
 
 print(result)
-
