@@ -4,6 +4,9 @@ const filePath = '/home/daniel/Documents/repos/adventofcode/2024/inputs/day1.txt
 
 async function solution() {
   const file = await parseInput(filePath);
+  if (typeof file === 'string') {
+    throw new Error('Expected an array of strings');
+  }
   
   const counter = new Map<number, number>()
 

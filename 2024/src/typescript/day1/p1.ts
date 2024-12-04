@@ -5,13 +5,16 @@ const filePath = '/home/daniel/Documents/repos/adventofcode/2024/inputs/day1.txt
 
 async function solution() {
   const file = await parseInput(filePath);
+  if (typeof file === 'string') {
+    throw new Error('Expected an array of strings');
+  }
   
   // Arrange inputs
   const leftArr: number[] = []
   const rightArr: number[] = []
 
   // Loop through and put each item in the respective arrays
-  file.forEach((item) => {
+  file.forEach((item: string) => {
     const lr = item.split(' ')
     leftArr.push(Number(lr[0]))
     rightArr.push(Number(lr[lr.length - 1]))
