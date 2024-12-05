@@ -11,7 +11,8 @@ async function solution() {
   let state = 'enabled';
   const validMulInstructions: string[] = [];
 
-  const regex = /don't\(\)|\b\w*do\b|mul\(\d+,\d+\)*\)/g;
+  const regex = /don't\(\)|\b\w*do\b|mul\(\d+,\d+\)/g;
+  
   const matches = file.matchAll(regex);
   const numRegex = /\d+,\d+/g;
 
