@@ -5,12 +5,10 @@ file = parse_input(filePath)
 
 rows = len(file)
 cols = len(file[0])
+sum = 0
 
 def check_sequence(seq: str):
   return seq == 'SAM' or seq == 'MAS'
-
-
-sum = 0
 
 for  i in range(rows):
   for j in range(cols):
