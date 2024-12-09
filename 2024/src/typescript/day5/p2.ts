@@ -171,10 +171,14 @@ async function solution2() {
     // Validate the update
     const isValid = (() => {
       const pageSet = new Set(pages);
+      const pageIndices = new Map<number, number>();
+      pages.forEach((page, index) => pageIndices.set(page, index));
+
+
       for (const [key, values] of pageOrderingRulesMap) {
         if (!pageSet.has(key)) continue;
         for (const value of values) {
-          if (pageSet.has(value) && pages.indexOf(key) >= pages.indexOf(value)) {
+          if (pageSet.has(value) && pageIndices.get(key)! >= pageIndices.get(value)!) {
             return false;
           }
         }
