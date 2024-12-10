@@ -25,7 +25,6 @@ async function solution() {
 }
 
 function findExpression(nums: number[], output: number){
-
   function backtrack(index: number, currentVal: number){
     if (index === nums.length) return currentVal === output
 
