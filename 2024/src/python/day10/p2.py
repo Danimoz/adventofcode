@@ -32,11 +32,10 @@ def rating_iterative(lines, start_y, start_x):
                     (current_y + 1, current_x), (current_y - 1, current_x), 
                     (current_y, current_x + 1), (current_y, current_x - 1)
                   ]
-      path_count = 0
+      
       for ny, nx in neighbors:
         if GetElementValue(lines, ny, nx) == current_value + 1:
           stack.append((ny, nx, current_value + 1))
-          path_count += 1
       
   return total_paths
 
