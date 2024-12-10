@@ -18,18 +18,13 @@ cols = len(lines[0])
 
 def rating_iterative(lines, start_y, start_x):
   stack = [(start_y, start_x, 0)]
-  visited = set()
   total_paths = 0
-
 
   while stack:
     current_y, current_x, current_value = stack.pop()
 
     if current_value == 9:
       total_paths += 1
-      continue
-
-    if (current_y, current_x) in visited:
       continue
 
     else:
