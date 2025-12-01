@@ -1,3 +1,20 @@
 node_modules/
 dist/
 *.js
+
+# --- Compiled binaries ---
+*.exe
+*.out
+*.obj
+*.o
+*.dll
+*.so
+*.a
+*.lib
+*.pdb
+
+# --- MSVC specific ---
+*.ilk
+*.idb
+
+.vscode/
