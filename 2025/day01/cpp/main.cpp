@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include "../../common/cpp/utils.hpp"
 
 int mod(int a, int m) {
@@ -42,7 +41,6 @@ int part2(const std::vector<std::string> &input){
 
     // 1. Count guaranteed hits from full 100-click revolutions
     hits += amount / 100;
-
     int remainder = amount % 100;
 
     if (direction == 'R'){
@@ -50,19 +48,13 @@ int part2(const std::vector<std::string> &input){
       if (dial + remainder >= 100){
         hits++;
       }
-      // 3. Update dial position using the full amount
       dial = mod(dial + amount, 100);
-    }
-    else if (direction == 'L')
-    {
+    } else if (direction == 'L'){
       // 2. Check if the remainder causes one additional hit by crossing 0
-      //    A hit occurs if the movement crosses/lands on 0 (dial - remainder <= 0),
-      //    BUT ONLY if the dial didn't start at 0 (0 -> 99 is not a hit).
-      if (dial != 0 && dial - remainder <= 0)
-      {
+      // A hit occurs if the movement crosses/lands on 0 (dial - remainder <= 0),  BUT ONLY if the dial didn't start at 0 (0 -> 99 is not a hit).
+      if (dial != 0 && dial - remainder <= 0){
         hits++;
       }
-      // 3. Update dial position using the full amount
       dial = mod(dial - amount, 100);
     }
   }
@@ -72,7 +64,7 @@ int part2(const std::vector<std::string> &input){
 
 
 int main() {
-  auto input = readInput("input.txt");
+  auto input = readLines("input.txt");
   std::cout << "Part 1: " << part1(input) << '\n';
   std::cout << "Part 2: " << part2(input) << '\n';
   return 0;
