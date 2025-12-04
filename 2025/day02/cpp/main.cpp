@@ -139,8 +139,7 @@ int main(){
     std::cout << "Part 1: " << part1(ranges) << '\n';
     std::cout << "Optimized Part 1: " << optimizedPart1(ranges) << '\n';
     std::cout << "Part 2: " << part2(ranges) << '\n';
-  } catch (const std::exception &ex)
-  {
+  } catch (const std::exception &ex){
     std::cerr << "Exception: " << ex.what() << '\n';
     return 1;
   }
