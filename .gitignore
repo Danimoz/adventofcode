@@ -18,3 +18,4 @@ dist/
 *.idb
 
 .vscode/
+.idea/

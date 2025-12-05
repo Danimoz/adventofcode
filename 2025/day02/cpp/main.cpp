@@ -19,7 +19,7 @@ long long part1(const std::vector<std::string> &input){
   long long total = 0;
 
   for (const auto &range : input){
-    auto parts = splitString(range, '-');
+    auto parts = splitString(range, "-");
     long long start = std::stoll(parts[0]);
     long long end = std::stoll(parts[1]);
 
@@ -45,7 +45,7 @@ long long optimizedPart1(const std::vector<std::string> &input){
   long long total = 0;
 
   for (const auto &range : input){
-    auto parts = splitString(range, '-');
+    auto parts = splitString(range, "-");
     long long start = std::stoll(parts[0]);
     long long end = std::stoll(parts[1]);
     /*
@@ -97,7 +97,7 @@ long long optimizedPart1(const std::vector<std::string> &input){
 long long part2(const std::vector<std::string> &input){
   long long total = 0;
   for (const auto &range : input){
-    auto parts = splitString(range, '-');
+    auto parts = splitString(range, "-");
     long long start = std::stoll(parts[0]);
     long long end = std::stoll(parts[1]);
 
@@ -134,7 +134,7 @@ int main(){
   try{
     std::cout << "Running Day 2 C++ Solutions\n";
     auto input = readFileIntoString("input.txt");
-    auto ranges = splitString(input, ',');
+    auto ranges = splitString(input, ",");
 
     std::cout << "Part 1: " << part1(ranges) << '\n';
     std::cout << "Optimized Part 1: " << optimizedPart1(ranges) << '\n';
