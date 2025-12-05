@@ -2,6 +2,7 @@
 #include <algorithm>
 #include "../../common/cpp/utils.hpp"
 
+// Time Complexity O(M * N)
 int part1(const std::vector<std::string> &ranges, const std::vector<std::string> &ingredients){
   int count = 0;
 
@@ -24,6 +25,44 @@ int part1(const std::vector<std::string> &ranges, const std::vector<std::string>
       const long long start = std::stoll(trim(rangeArray[0]));
       const long long end = std::stoll(trim(rangeArray[1]));
 
+      if (ingredientValue >= start && ingredientValue <= end){
+        ++count;
+        break;
+      }
+    }
+  }
+
+  return count;
+}
+
+// Time Complexity O(M+N)
+int optimizedPart1(const std::vector<std::string> &ranges, const std::vector<std::string> &ingredients){
+  std::vector<std::pair<long long, long long>> parsedRanges;
+
+  for (const auto &range : ranges){
+    std::string trimmedRange = trim(range);
+    if (trimmedRange.empty())
+      continue;
+
+    const std::vector<std::string> rangeArray = splitString(trimmedRange, "-");
+    if (rangeArray.size() < 2)
+      continue;
+
+    const long long start = std::stoll(trim(rangeArray[0]));
+    const long long end = std::stoll(trim(rangeArray[1]));
+    parsedRanges.emplace_back(start, end);
+  }
+
+  int count = 0;
+
+  for (const auto &ingredient : ingredients){
+    std::string trimmedIngredient = trim(ingredient);
+    if (trimmedIngredient.empty())
+      continue;
+
+    const long long ingredientValue = std::stoll(trimmedIngredient);
+
+    for (const auto &[start, end] : parsedRanges){
       if (ingredientValue >= start && ingredientValue <= end){
         ++count;
         break;
@@ -101,6 +140,7 @@ int main(){
     const std::vector<std::string> ingredientsArray = splitString(availableIngredients, "\n");
 
     std::cout << "Part 1:" << part1(rangesArray, ingredientsArray) << "\n";
+    std::cout << "Optimized Part 1: " << optimizedPart1(rangesArray, ingredientsArray) << "\n";
     std::cout << "Part 2: " << part2(rangesArray) << "\n";
   } catch (const std::exception &e){
     std::cerr << "Error: " << e.what() << '\n';
