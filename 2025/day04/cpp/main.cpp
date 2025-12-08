@@ -1,18 +1,6 @@
 #include <iostream>
 #include "../../common/cpp/utils.hpp"
 
-std::vector<std::vector<char>> buildGrid(const std::vector<std::string> &input){
-  std::vector<std::vector<char>> grid;
-  for (const auto &line : input){
-    std::vector<char> row;
-    for (char ch : line){
-      row.emplace_back(ch);
-    }
-    grid.emplace_back(std::move(row));
-  }
-  return grid;
-}
-
 int part1(const std::vector<std::vector<char>> &grid){
   int count = 0;
   int rows = grid.size();

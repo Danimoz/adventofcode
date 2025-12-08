@@ -66,3 +66,16 @@ inline std::string trim(const std::string &s){
   size_t end = s.find_last_not_of(" \t\n\r");
   return s.substr(start, end - start + 1);
 }
+
+inline std::vector<std::vector<char>> buildGrid(const std::vector<std::string> &input){
+  std::vector<std::vector<char>> grid;
+  for (const auto &line : input){
+    std::vector<char> row;
+    for (char ch : line){
+      row.emplace_back(ch);
+    }
+    grid.emplace_back(std::move(row));
+  }
+
+  return grid;
+}
