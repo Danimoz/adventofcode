@@ -89,16 +89,12 @@ long long countP1(const std::string& current,
   return memo[current] = totalPaths;
 }
 
-long long solve(const std::unordered_map<std::string, std::vector<std::string>>& graph) {
-  std::unordered_map<std::string, long long> memo1;
-  return countP1("you", graph, memo1);
-}
-
 
 int main() {
   const auto lines = readLines("input.txt");
   const auto graph = buildGraph(lines);
-  long long p1 = solve(graph);
+  std::unordered_map<std::string, long long> memo1;
+  long long p1 = countP1("you", graph, memo1);
   std::cout << "Part 1:" << p1 << "\n";
 
   std::unordered_map<State, long long, StateHash> memo2;
